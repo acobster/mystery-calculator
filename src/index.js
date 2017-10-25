@@ -3,23 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Page from './Page.js';
+import Answer from './Answer.js';
+import ModeButton from './ModeButton.js';
 
 class MysteryCalculator extends React.Component {
   constructor(props) {
     super(props);
 
-    this.MODES = ['mystery', 'decimal', 'binary', 'explainer'];
     this.PAGE_COUNT = 6;
 
     this.state = {
-      mode: 'mystery',
+      mode: 'binary',
       selectedPages: [],
+      reveal: false,
     };
+
+    this.modes = [
+      { name: 'mystery',    title: 'Mystery Mode',    value: '?' },
+      { name: 'decimal',    title: 'Decimal Mode',    value: '32' },
+      { name: 'binary',     title: 'Binary Mode',     value: '0110' },
+      { name: 'explainer',  title: 'Explainer Mode',  value: 'Explain!' },
+    ];
   }
 
   handleModeChange(mode) {
-    this.setState({mode: mode});
-    console.log('mode -> ', mode);
+    this.setState({
+      mode: mode,
+      reveal: (mode !== 'mystery'),
+    });
   }
 
   togglePageSelected(i) {
@@ -31,8 +42,10 @@ class MysteryCalculator extends React.Component {
       pages.push(i);
     }
 
-    this.setState({selectedPages: pages});
-    console.log(this.state.selectedPages);
+    this.setState({
+      selectedPages: pages,
+      reveal: false
+    });
   }
 
   pageSelected(i) {
@@ -54,40 +67,36 @@ class MysteryCalculator extends React.Component {
       />
     ));
 
+    let modeOptions = this.modes.map((mode, i) => {
+      return (
+        <li className="mode-option" key={i}>
+          <ModeButton
+            title={mode.title}
+            currentMode={this.state.mode}
+            mode={mode.name}
+            onClick={(mode) => this.handleModeChange(mode)}
+            value={mode.value}
+          />
+        </li>
+      );
+    });
+
     return (
       <div className="mystery-calculator">
         <article className="pages">
           {pages}
         </article>
-        <aside className="answer">
-          {this.calculate(this.state.selectedPages)}
-        </aside>
         <ul className="modes">
-          <li>
-            <button
-              title="Mystery Mode"
-              onClick={() => this.handleModeChange('mystery')}
-            >?</button>
-          </li>
-          <li>
-            <button
-              title="Decimal Mode"
-              onClick={() => this.handleModeChange('decimal')}
-            >32</button>
-          </li>
-          <li>
-            <button
-              title="Binary Mode"
-              onClick={() => this.handleModeChange('binary')}
-            >0110</button>
-          </li>
-          <li>
-            <button
-              title="Explainer Mode"
-              onClick={() => this.handleModeChange('explainer')}
-            >Explain!</button>
-          </li>
+          {modeOptions}
         </ul>
+        <aside className="answer">
+          <Answer
+            number={this.calculate(this.state.selectedPages)}
+            mode={this.state.mode}
+            reveal={this.state.reveal}
+            onReveal={() => this.setState({reveal: true})}
+          />
+        </aside>
       </div>
     );
   }

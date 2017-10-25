@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Num from './Num.js';
+
 const numbersByPage = ((pageCount) => {
   return Array(pageCount).fill(null).reduce((pages, _, n) => {
     pages[n] = [];
@@ -18,12 +20,6 @@ function getNumbersOnPage(i) {
   return numbersByPage[i];
 }
 
-function Num(props) {
-  return (
-    <span className="number">{props.number}</span>
-  );
-}
-
 class Page extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +34,7 @@ class Page extends React.Component {
   render() {
     const numbers = this.numbers.map((n) => {
       return (
-          <Num key={n} number={n} />
+          <Num key={n} number={n} mode={this.props.mode} />
       );
     });
 
