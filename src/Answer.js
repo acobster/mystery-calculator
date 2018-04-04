@@ -7,8 +7,12 @@ function Answer(props) {
   if (!props.reveal) {
     markup = (
       <div>
-        <span>???</span>
-        <p><button onClick={props.onReveal}>Reveal!</button></p>
+        <span className="number number-mystery">???</span>
+        <button
+          className="reveal-button"
+          onClick={props.onReveal}
+          type="button"
+        >Reveal!</button>
       </div>
     );
   } else {
@@ -19,8 +23,8 @@ function Answer(props) {
 
   return (
     <div className="answer">
-      <span>Your Number:</span>
-      {markup}
+      <label className="number-label">Your Number:</label>
+      <div className="answer-number">{markup}</div>
     </div>
   );
 }

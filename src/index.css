@@ -1,14 +1,39 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  font: 20px "Century Gothic", Futura, sans-serif;
+  margin: 1em 0;
+}
+
+h1, h2 {
+  font-family: Palatino, serif;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+main {
+  max-width: 100%;
+  margin: auto;
 }
 
 ol, ul {
-  padding-left: 30px;
+  padding: 0;
 }
 
 button {
   cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #f2f1f0;
+}
+
+button[type="button"]:hover, .mode-btn[type="button"]:hover {
+  background-color: #ff82a7;
+}
+
+.pages {
+  overflow: scroll;
 }
 
 .page {
@@ -17,13 +42,9 @@ button {
   justify-content: space-evenly;
   cursor: pointer;
   width: 400px;
-  height: 86px;
-  margin: 2em 0;
+  height: 100px;
+  margin: auto;
   padding: 5px 0;
-}
-
-.page.selected {
-  background-color: pink;
 }
 
 .number {
@@ -31,8 +52,102 @@ button {
   text-align: center;
 }
 
+footer {
+  width: 100%;
+  height: 6em;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+}
+
+.modes {
+  height: 3em;
+}
+
+.answer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  height: 3em;
+  width: 50em;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.number-label, .answer-number {
+  width: 50%;
+  margin: 1em;
+}
+
+.number-label {
+  text-align: right;
+}
+.reveal-button {
+  margin-top: -0.7em;
+  margin-left: 2em;
+  padding: 0.8em;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+
+
+/*
+ * Layout Progressive Enhancement
+ */
+
+@supports (height: 1vh) {
+  header {
+    height: 20vh;
+  }
+
+  .pages {
+    height: 65vh;
+  }
+
+  .page {
+    height: 13vh;
+    margin: 1vh auto;
+  }
+
+  footer {
+    height: 15vh;
+  }
+}
+
+@supports (display: grid) {
+  .pages {
+    display: grid;
+  }
+
+  @media only screen and (min-width: 900px) {
+    .pages {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .number {
+    width: 1fr;
+  }
+}
+
+
+/*
+ * STATE
+ */
+
+.page.selected {
+  background-color: pink;
+}
+
 .number.binary-mode {
-  font-size: 12px;
+  font-size: 60%;
   font-family: monospace;
 }
 
@@ -52,11 +167,15 @@ button {
   margin: 0;
 }
 
+.mode-btn.mode--decimal, .mode-btn.mode--explainer {
+  background-color: #d5d5d5;
+}
+
 .mode-btn {
   outline: none;
   border: none;
-  width: 90%;
-  padding: 3px 0;
+  width: 100%;
+  padding: 1em 0;
   margin: 0;
 }
 

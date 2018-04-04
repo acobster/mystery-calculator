@@ -69,34 +69,40 @@ class MysteryCalculator extends React.Component {
 
     let modeOptions = this.modes.map((mode, i) => {
       return (
-        <li className="mode-option" key={i}>
-          <ModeButton
-            title={mode.title}
-            currentMode={this.state.mode}
-            mode={mode.name}
-            onClick={(mode) => this.handleModeChange(mode)}
-            value={mode.value}
-          />
-        </li>
+        <ModeButton
+          title={mode.title}
+          currentMode={this.state.mode}
+          mode={mode.name}
+          onClick={(mode) => this.handleModeChange(mode)}
+          value={mode.value}
+        />
       );
     });
 
     return (
       <div className="mystery-calculator">
+        <header>
+          <h1>The Mystery Calculator</h1>
+          <h2>
+            Pick any number from 1 to 63.
+            Click the cards that include your number.
+            Reveal below!
+          </h2>
+        </header>
         <article className="pages">
           {pages}
         </article>
-        <ul className="modes">
-          {modeOptions}
-        </ul>
-        <aside className="answer">
+        <footer>
+          <div className="modes">
+            {modeOptions}
+          </div>
           <Answer
             number={this.calculate(this.state.selectedPages)}
             mode={this.state.mode}
             reveal={this.state.reveal}
             onReveal={() => this.setState({reveal: true})}
           />
-        </aside>
+        </footer>
       </div>
     );
   }

@@ -5,9 +5,10 @@ function ModeButton(props) {
 
   return (
     <button
-      className={"mode-btn "+currentClass}
+      className={"mode-btn mode--" + props.mode + ' ' + currentClass}
       title={props.title}
       onClick={() => props.onClick(props.mode)}
+      type="button"
     >{props.value}</button>
   );
 }
