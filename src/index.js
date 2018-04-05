@@ -67,7 +67,7 @@ class MysteryCalculator extends React.Component {
       />
     ));
 
-    let modeOptions = this.modes.map((mode, i) => {
+    let modeOptions = this.modes.map((mode) => {
       return (
         <ModeButton
           title={mode.title}
@@ -85,7 +85,9 @@ class MysteryCalculator extends React.Component {
           <h1>The Mystery Calculator</h1>
           <h2>
             Pick any number from 1 to 63.
+            <br/>
             Click the cards that include your number.
+            <br/>
             Reveal below!
           </h2>
         </header>
