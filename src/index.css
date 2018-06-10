@@ -1,5 +1,5 @@
 body {
-  font: 20px "Century Gothic", Futura, sans-serif;
+  font: 16px "Century Gothic", Futura, sans-serif;
   margin: 1em 0;
   background-color: white;
 }
@@ -142,14 +142,6 @@ footer {
   }
 
   @media only screen and (min-width: 900px) {
-    .pages {
-      grid-template-columns: 1fr 1fr;
-      overflow: hidden;
-    }
-
-    .page {
-      margin: 1vh auto;
-    }
   }
 }
 
@@ -163,7 +155,7 @@ footer {
 }
 
 .number.binary-mode {
-  font-size: 60%;
+  font-size: 75%;
   font-family: monospace;
 }
 
