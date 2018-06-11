@@ -160,6 +160,7 @@ footer {
 
 .number.binary-mode {
   letter-spacing: -1px;
+  line-height: 2;
   font-size: 70%;
   font-family: monospace;
 }
@@ -196,6 +197,12 @@ footer {
   background-color: pink;
 }
 
+@media only screen and (min-width: 400px) {
+  .number.binary-mode {
+    padding: 0 5px;
+  }
+}
+
 @media only screen and (min-width: 900px) {
   .book {
     display: grid;
@@ -203,6 +210,8 @@ footer {
   }
 
 
-  .number.binary-mode { font-size: 77%; }
+  .number.binary-mode {
+    font-size: 77%;
+  }
 }
 
