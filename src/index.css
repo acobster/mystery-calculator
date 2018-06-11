@@ -59,14 +59,15 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
   flex-wrap: wrap;
   justify-content: space-evenly;
   cursor: pointer;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 100px;
   margin: auto;
   padding: 5px 0;
 }
 
 .number {
-  width: 50px;
+  width: 40px;
   text-align: center;
 }
 
@@ -132,16 +133,10 @@ footer {
   }
 
   .page {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    margin: 1vh auto;
-  }
 
-  .number {
-    width: 1fr;
-  }
-
-  @media only screen and (min-width: 900px) {
+    /* display numbers on the page in a grid too */
+    display: grid;
   }
 }
 
@@ -155,7 +150,8 @@ footer {
 }
 
 .number.binary-mode {
-  font-size: 75%;
+  letter-spacing: -1px;
+  font-size: 70%;
   font-family: monospace;
 }
 
@@ -189,5 +185,9 @@ footer {
 
 .mode-btn.current {
   background-color: pink;
+}
+
+@media only screen and (min-width: 900px) {
+  .number.binary-mode { font-size: 77%; }
 }
 
