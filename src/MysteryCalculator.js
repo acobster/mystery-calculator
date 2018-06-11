@@ -3,6 +3,7 @@ import './index.css';
 
 import Page from './Page.js';
 import Answer from './Answer.js';
+import Explainer from './Explainer.js';
 import ModeButton from './ModeButton.js';
 
 class MysteryCalculator extends React.Component {
@@ -84,16 +85,11 @@ class MysteryCalculator extends React.Component {
       <div className="mystery-calculator">
         <h1>The Mystery Calculator</h1>
         <section className="book">
-          <aside className="explainer">
-            <p>
-              Choose a number from 0 to 63,
-              and click on each card where your number appears.
-            </p>
-            <p>
-              Click REVEAL, and the Mystery Calculator will guess your number!
-            </p>
-            <p>Explore the different modes below to learn how this works.</p>
-          </aside>
+          <Explainer
+            selectedPages={this.state.selectedPages}
+            number={this.calculate(this.state.selectedPages)}
+            mode={this.state.mode}
+          />
           <article className="pages">
             {pages}
           </article>
