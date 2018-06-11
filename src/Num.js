@@ -9,8 +9,8 @@ class Num extends React.Component {
 
     // map each digit to a Digit component,
     // for special markup depending on significance;
-    // reverse digits so that the significant digit's place
-    // corresponds with the page number
+    // temporarily reverse digits so that the significant digit's
+    // place corresponds with the page number
     return binaryStr.split('').reverse().map((digit, i) => {
       const significant = i === this.props.pageNumber
 
@@ -29,7 +29,6 @@ class Num extends React.Component {
       mystery: (n) => (n),
       binary: (n) => (this.toBinary(n)),
       decimal: (n) => (n),
-      // TODO take a cohort prop, for highlighting possibilities
       explainer: (n) => (n),
     };
 
@@ -37,7 +36,9 @@ class Num extends React.Component {
   }
 
   render() {
+    // give each power of two a special class
     const power = this.props.powerOfTwo ? 'power-of-2' : ''
+
     return (
       <span className={"number "+this.props.mode+"-mode "+power}>
         {this.renderNumber()}
