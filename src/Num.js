@@ -1,10 +1,42 @@
 import React from 'react';
 
+class Digit extends React.Component {
+  render() {
+    const _class = this.props.significant ?
+      'digit significant-digit' :
+      'digit'
+    return (
+      <span className={_class}>{this.props.digit}</span>
+    )
+  }
+}
+
 class Num extends React.Component {
+  toBinary(n) {
+    // leftPad to ensure all binary nums are the same length
+    const binaryStr = leftPad(n.toString(2), 6, '0')
+
+    // map each digit to a Digit component,
+    // for special markup depending on significance;
+    // reverse digits so that the significant digit's place
+    // corresponds with the page number
+    return binaryStr.split('').reverse().map((digit, i) => {
+      const significant = i === this.props.pageNumber
+
+      return (
+        <Digit
+          digit={digit}
+          significant={significant}
+          key={i}
+        />
+      )
+    }).reverse()
+  }
+
   renderNumber() {
     const modes = {
       mystery: (n) => (n),
-      binary: (n) => (leftPad(n.toString(2), 6, '0')),
+      binary: (n) => (this.toBinary(n)),
       decimal: (n) => (n),
       // TODO take a cohort prop, for highlighting possibilities
       explainer: (n) => (n),
@@ -14,8 +46,9 @@ class Num extends React.Component {
   }
 
   render() {
+    const power = this.props.powerOfTwo ? 'power-of-2' : ''
     return (
-      <span className={"number "+this.props.mode+"-mode"}>
+      <span className={"number "+this.props.mode+"-mode "+power}>
         {this.renderNumber()}
       </span>
     );

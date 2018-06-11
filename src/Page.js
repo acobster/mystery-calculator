@@ -2,29 +2,25 @@ import React from 'react';
 
 import Num from './Num.js';
 
-const numbersByPage = ((pageCount) => {
-  return Array(pageCount).fill(null).reduce((pages, _, n) => {
-    pages[n] = [];
-    let powerOfTwo = Math.pow(2, n);
-    for (var i = powerOfTwo; i < 64; i++) {
-      if ((i|powerOfTwo) === i) {
-        pages[n].push(i);
-      }
+const powersOfTwo = Array(6).fill(null).map((_, n) => Math.pow(2, n))
+
+const numbersByPage = powersOfTwo.reduce((pages, power, n) => {
+  pages[n] = [];
+  for (var i = power; i < 64; i++) {
+    if ((i|power) === i) {
+      pages[n].push(i);
     }
+  }
 
-    return pages;
-  }, {});
-})(6);
+  return pages;
+}, {})
 
-function getNumbersOnPage(i) {
-  return numbersByPage[i];
-}
 
 class Page extends React.Component {
   constructor(props) {
     super(props);
 
-    this.numbers = getNumbersOnPage(props.number)
+    this.numbers = numbersByPage[props.number]
   }
 
   selectedClass() {
@@ -33,8 +29,15 @@ class Page extends React.Component {
 
   render() {
     const numbers = this.numbers.map((n) => {
+      console.log(powersOfTwo)
       return (
-          <Num key={n} number={n} mode={this.props.mode} />
+        <Num
+          key={n}
+          number={n}
+          mode={this.props.mode}
+          pageNumber={this.props.number}
+          powerOfTwo={powersOfTwo.includes(n)}
+        />
       );
     });
 

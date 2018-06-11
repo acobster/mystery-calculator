@@ -74,6 +74,14 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
 .number {
   width: 40px;
   text-align: center;
+  color: #636363;
+}
+.number.power-of-2.decimal-mode,
+.number.power-of-2.binary-mode,
+.number.power-of-2.explainer-mode,
+.number .significant-digit {
+  font-weight: bold;
+  color: #570a57;
 }
 
 footer {
@@ -210,7 +218,7 @@ footer {
 
 
   .number.binary-mode {
-    font-size: 77%;
+    font-size: 85%;
   }
 }
 
