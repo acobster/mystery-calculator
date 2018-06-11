@@ -85,14 +85,14 @@ class MysteryCalculator extends React.Component {
       <div className="mystery-calculator">
         <h1>The Mystery Calculator</h1>
         <section className="book">
+          <article className="pages">
+            {pages}
+          </article>
           <Explainer
             selectedPages={this.state.selectedPages}
             number={this.calculate(this.state.selectedPages)}
             mode={this.state.mode}
           />
-          <article className="pages">
-            {pages}
-          </article>
         </section>
         <ul className="modes">
           {modeOptions}
