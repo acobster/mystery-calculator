@@ -82,9 +82,22 @@ class MysteryCalculator extends React.Component {
 
     return (
       <div className="mystery-calculator">
-        <article className="pages">
-          {pages}
-        </article>
+        <h1>The Mystery Calculator</h1>
+        <section className="book">
+          <aside className="explainer">
+            <p>
+              Choose a number from 0 to 63,
+              and click on each card where your number appears.
+            </p>
+            <p>
+              Click REVEAL, and the Mystery Calculator will guess your number!
+            </p>
+            <p>Explore the different modes below to learn how this works.</p>
+          </aside>
+          <article className="pages">
+            {pages}
+          </article>
+        </section>
         <ul className="modes">
           {modeOptions}
         </ul>
