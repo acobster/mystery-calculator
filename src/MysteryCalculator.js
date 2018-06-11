@@ -43,7 +43,7 @@ class MysteryCalculator extends React.Component {
 
     this.setState({
       selectedPages: pages,
-      reveal: false
+      reveal: (this.state.mode !== 'mystery'),
     });
   }
 
