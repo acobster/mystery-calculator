@@ -51,6 +51,7 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
 
 .explainer {
   padding: 0 1em;
+  max-width: 35em;
 }
 
 .pages {
@@ -82,6 +83,13 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
 .number .significant-digit {
   font-weight: bold;
   color: #570a57;
+}
+
+.equation {
+  font-family: 'Century Gothic', Futura, sans-serif;
+  font-weight: bold;
+  color: #570a57;
+  line-height: 1;
 }
 
 footer {
