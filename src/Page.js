@@ -29,7 +29,6 @@ class Page extends React.Component {
 
   render() {
     const numbers = this.numbers.map((n) => {
-      console.log(powersOfTwo)
       return (
         <Num
           key={n}
