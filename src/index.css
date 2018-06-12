@@ -92,14 +92,6 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
   line-height: 1;
 }
 
-footer {
-  width: 100%;
-  height: 5em;
-  position: fixed;
-  bottom: 0;
-  background-color: white;
-}
-
 .modes {
   height: 2.5em;
 }
@@ -230,3 +222,19 @@ footer {
   }
 }
 
+
+
+/*
+ * PRINT
+ */
+
+.print { display: none; }
+@media only print {
+  body { font-size: 12px; }
+  .mystery-calculator > * { display: none; }
+  .mystery-calculator > .print { display: block; }
+
+  h2 { text-align: center; font-size: 2em; }
+  .page { max-width: 200px; height: initial; }
+  .number { width: initial; }
+}
