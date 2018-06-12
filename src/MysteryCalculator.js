@@ -56,18 +56,20 @@ class MysteryCalculator extends React.Component {
     return pages.reduce((sum, n) => (sum + Math.pow(2, n)), 0);
   }
 
-  render() {
-    let pages = Array(this.PAGE_COUNT).fill(null).map((_, i) => (
+  pagesInMode(mode) {
+    return Array(this.PAGE_COUNT).fill(null).map((_, i) => (
       <Page
         key={i}
         number={i}
-        mode={this.state.mode}
+        mode={mode}
         onClick={() => this.togglePageSelected(i)}
         selected={this.pageSelected(i)}
       />
     ));
+  }
 
-    let modeOptions = this.modes.map((mode, i) => {
+  modeOptions() {
+    return this.modes.map((mode, i) => {
       return (
         <li className="mode-option" key={i}>
           <ModeButton
@@ -80,13 +82,15 @@ class MysteryCalculator extends React.Component {
         </li>
       );
     });
+  }
 
+  render() {
     return (
       <div className="mystery-calculator">
         <h1>The Mystery Calculator</h1>
         <section className="book">
           <article className="pages">
-            {pages}
+            {this.pagesInMode(this.state.mode)}
           </article>
           <Explainer
             selectedPages={this.state.selectedPages}
@@ -95,7 +99,7 @@ class MysteryCalculator extends React.Component {
           />
         </section>
         <ul className="modes">
-          {modeOptions}
+          {this.modeOptions()}
         </ul>
         <aside className="answer">
           <Answer
