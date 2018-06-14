@@ -5,6 +5,7 @@ import Page from './Page.js';
 import Answer from './Answer.js';
 import Explainer from './Explainer.js';
 import ModeButton from './ModeButton.js';
+import PrintButton from './PrintButton.js';
 
 class MysteryCalculator extends React.Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class MysteryCalculator extends React.Component {
     return (
       <div className="mystery-calculator">
         <h1>The Mystery Calculator</h1>
+        <PrintButton />
         <section className="book">
           <article className="pages">
             {this.pagesInMode(this.state.mode)}

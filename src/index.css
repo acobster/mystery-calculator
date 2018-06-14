@@ -49,6 +49,10 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
   background-color: #ff82a7;
 }
 
+a {
+  color: hotpink;
+}
+
 .explainer {
   padding: 0 1em;
   max-width: 35em;
@@ -228,7 +232,9 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
  * PRINT
  */
 
-.print { display: none; }
+
+.print, .print-btn { display: none; }
+
 @media only print {
   body { font-size: 12px; }
   .mystery-calculator > * { display: none; }
@@ -237,4 +243,22 @@ button[type="button"]:hover, .mode-btn[type="button"]:hover {
   h2 { text-align: center; font-size: 2em; }
   .page { max-width: 200px; height: initial; }
   .number { width: initial; }
+}
+
+@media only screen and (min-width: 500px) {
+  .print-btn {
+    /* mobile-first */
+    display: initial;
+    cursor: pointer;
+    position: fixed;
+    right: 1em;
+    top: 1em;
+  }
+  .print-btn svg {
+    max-width: 2em;
+  }
+  .printer-icon path {
+    fill: hotpink;
+    opacity: 1;
+  }
 }
