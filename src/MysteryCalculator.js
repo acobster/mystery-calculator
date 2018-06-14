@@ -111,17 +111,32 @@ class MysteryCalculator extends React.Component {
             onReveal={() => this.setState({reveal: true})}
           />
         </aside>
-        <footer className="print">
-          <h2>The Mystery Calculator</h2>
-          {this.pagesInMode('mystery')}
-          <p>
-            Cut out each card of 8x4 numbers.
-            Ask a friend to pick any number from 1 to 63,
-            and keep the number to themselves.
-            Then for each card, ask them if their number appears
-            on that card. Add up the top left number from each
-            card their number is on: the total is the number they chose.
-          </p>
+        <footer>
+          <div className="copyright">
+            <p>
+							© 2018 Coby Tamayo, Some Rights Reserved.&nbsp;
+              <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a><br />
+              Printer icon made by <a
+                href="https://www.flaticon.com/authors/gregor-cresnar"
+                title="Gregor Cresnar"
+              >Gregor Cresnar</a> from <a
+                href="https://www.flaticon.com/"
+                title="Flaticon"
+              >www.flaticon.com</a>
+						</p>
+          </div>
+          <div className="print">
+            <h2>The Mystery Calculator</h2>
+            {this.pagesInMode('mystery')}
+            <p>
+              Cut out each card of 8x4 numbers.
+              Ask a friend to pick any number from 1 to 63,
+              and keep the number to themselves.
+              Then for each card, ask them if their number appears
+              on that card. Add up the top left number from each
+              card their number is on: the total is the number they chose.
+            </p>
+          </div>
         </footer>
       </div>
     );
