@@ -1,5 +1,7 @@
 import React from 'react'
 
+import BinaryExplainer from './BinaryExplainer'
+
 function oxfordComma(things) {
   let clause
 
@@ -78,10 +80,23 @@ class Explainer extends React.Component {
     )
   }
 
+  renderBinary() {
+    return (
+      <BinaryExplainer
+        selectedPages={this.props.number}
+        number={this.props.number}
+        mode={this.props.mode}
+      />
+    )
+  }
+
   render() {
     let explanation
 
     switch (this.props.mode) {
+      case 'binary':
+        explanation = this.renderBinary()
+        break;
       case 'decimal':
         explanation = this.renderDecimalExplainer()
         break;
