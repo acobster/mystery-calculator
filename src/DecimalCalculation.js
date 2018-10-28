@@ -2,7 +2,12 @@ import React from 'react'
 
 class DecimalCalculation extends React.Component {
   render() {
-    return 'DECIMAL CALCULATION'
+    const powers = this.props.selectedPages.map(p => Math.pow(2, p))
+    // sort numerically
+    powers.sort((a, b) => (a - b))
+    const left = powers.join(' + ')
+
+    return (<p>{left} = {this.props.number}</p>)
   }
 }
 
