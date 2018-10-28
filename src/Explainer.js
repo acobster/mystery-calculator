@@ -83,7 +83,7 @@ class Explainer extends React.Component {
   renderBinary() {
     return (
       <BinaryExplainer
-        selectedPages={this.props.number}
+        selectedPages={this.props.selectedPages}
         number={this.props.number}
         mode={this.props.mode}
       />
