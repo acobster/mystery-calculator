@@ -14,11 +14,19 @@ class BinaryExplainer extends React.Component {
   }
 
   render() {
+    if (this.props.selectedPages.length < 2) {
+      return (
+        <div>
+          <p>Select some pages to explore how <em>binary numbers</em> work!</p>
+        </div>
+      )
+    }
+
     return (
       <div>
         <p>
-          Let's explore a different way of writing numbers,
-          called <em>binary</em> or <em>base-1</em>. In binary,
+          Okay, let's explore a different way of writing numbers,
+          called <em>binary</em> or <em>base-2</em>. In binary,
           calculating your number looks like this:
         </p>
         <BinaryCalculation
@@ -54,14 +62,7 @@ class BinaryExplainer extends React.Component {
           the tens' place:
         </p>
         <div className="calculation-pair">
-          <DecimalCalculation
-            number={this.props.number}
-            selectedPages={this.props.selectedPages}
-          />
-          <DecimalCalculation
-            number={this.props.number}
-            selectedPages={this.props.selectedPages}
-          />
+          <p>6 + 10 = 16</p>
         </div>
         <p>
           In binary, we have the ones' place (just like in decimal),
@@ -111,7 +112,7 @@ class BinaryExplainer extends React.Component {
 
         <p>
           Notice that this is the exact same calculation as the top-left
-          numbers from the pages TODO appears on!
+          numbers from the pages {this.props.number} appears on!
         </p>
 
         <div className="calculation-pair">
