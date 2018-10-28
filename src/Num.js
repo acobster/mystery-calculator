@@ -3,7 +3,7 @@ import React from 'react';
 import Digit from './Digit.js'
 
 class Num extends React.Component {
-  toBinary(n) {
+  toBinary(n, showSignificance) {
     // leftPad to ensure all binary nums are the same length
     const binaryStr = leftPad(n.toString(2), 6, '0')
 
@@ -12,7 +12,7 @@ class Num extends React.Component {
     // temporarily reverse digits so that the significant digit's
     // place corresponds with the page number
     return binaryStr.split('').reverse().map((digit, i) => {
-      const significant = i === this.props.pageNumber
+      const significant = showSignificance && i === this.props.pageNumber
 
       return (
         <Digit
@@ -27,9 +27,9 @@ class Num extends React.Component {
   renderNumber() {
     const modes = {
       mystery: (n) => (n),
-      binary: (n) => (this.toBinary(n)),
+      binary: (n) => (this.toBinary(n, false)),
       decimal: (n) => (n),
-      explainer: (n) => (n),
+      explainer: (n) => (this.toBinary(n, true)),
     };
 
     return modes[this.props.mode](this.props.number);

@@ -177,7 +177,8 @@ a {
   background-color: pink;
 }
 
-.number.binary-mode {
+.number.binary-mode,
+.number.explainer-mode {
   letter-spacing: -1px;
   line-height: 2;
   font-size: 70%;
@@ -229,7 +230,8 @@ a {
   }
 
 
-  .number.binary-mode {
+  .number.binary-mode,
+  .number.explainer-mode {
     font-size: 85%;
   }
 }
