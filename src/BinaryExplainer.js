@@ -62,7 +62,7 @@ class BinaryExplainer extends React.Component {
           the tens' place:
         </p>
         <div className="calculation-pair">
-          <p>6 + 10 = 16</p>
+          <p className="equation">6 + 10 = 16</p>
         </div>
         <p>
           In binary, we have the ones' place (just like in decimal),
@@ -73,7 +73,7 @@ class BinaryExplainer extends React.Component {
         </p>
         <p>
           So to write the number 16, we just need a few more places. How many
-          places do we need? It turns out, we can write 16 using just 5 places,
+          places do we need? It turns out, we can write 16 using 5 places,
           like this:
         </p>
         <p className="standalone-number">10000</p>

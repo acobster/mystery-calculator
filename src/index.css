@@ -217,6 +217,27 @@ a {
   background-color: pink;
 }
 
+
+/*
+ * CALCULATIONS
+ */
+
+.binary-calculation {
+  width: 6em;
+  text-align: right;
+}
+
+.binary-addends {
+  border-bottom: 1px solid black;
+}
+
+.binary-addend:last-child::before {
+  content: '+';
+  margin-right: 0.5em;
+  font-size: 85%;
+}
+
+
 @media only screen and (min-width: 400px) {
   .number.binary-mode {
     padding: 0 5px;

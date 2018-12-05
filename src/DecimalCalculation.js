@@ -7,7 +7,7 @@ class DecimalCalculation extends React.Component {
     powers.sort((a, b) => (a - b))
     const left = powers.join(' + ')
 
-    return (<p>{left} = {this.props.number}</p>)
+    return (<p className="equation">{left} = {this.props.number}</p>)
   }
 }
 
