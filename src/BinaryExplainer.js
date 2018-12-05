@@ -88,10 +88,6 @@ class BinaryExplainer extends React.Component {
             selectedPages={this.props.selectedPages}
             annotated={true}
           />
-          <BinaryCalculation
-            number={this.props.number}
-            selectedPages={this.props.selectedPages}
-          />
         </div>
         <p>
           How would we write your number in binary? We saw the answer already,
@@ -104,10 +100,6 @@ class BinaryExplainer extends React.Component {
             selectedPages={this.props.selectedPages}
             annotated={true}
           />
-          <BinaryCalculation
-            number={this.props.number}
-            selectedPages={this.props.selectedPages}
-          />
         </div>
 
         <p>
@@ -116,11 +108,6 @@ class BinaryExplainer extends React.Component {
         </p>
 
         <div className="calculation-pair">
-          <BinaryCalculation
-            number={this.props.number}
-            selectedPages={this.props.selectedPages}
-            annotated={true}
-          />
           <DecimalCalculation
             number={this.props.number}
             selectedPages={this.props.selectedPages}
