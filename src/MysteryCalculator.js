@@ -13,9 +13,19 @@ class MysteryCalculator extends React.Component {
 
     this.PAGE_COUNT = 6;
 
+    let pages = [];
+    if (window.localStorage) {
+      const pageList = window.localStorage.getItem('pages')
+
+      if (pageList) {
+        // coerce each stored page to an int
+        pages = pageList.split(',').map(i => i-0)
+      }
+    }
+
     this.state = {
       mode: 'binary',
-      selectedPages: [],
+      selectedPages: pages,
       reveal: false,
     };
 
@@ -47,6 +57,10 @@ class MysteryCalculator extends React.Component {
       selectedPages: pages,
       reveal: (this.state.mode !== 'mystery'),
     });
+
+    if (window.localStorage) {
+      window.localStorage.setItem('pages', pages)
+    }
   }
 
   pageSelected(i) {
@@ -58,6 +72,7 @@ class MysteryCalculator extends React.Component {
   }
 
   pagesInMode(mode) {
+    // render PAGE_COUNT pages, each corresponding to the appropriate power of 2
     return Array(this.PAGE_COUNT).fill(null).map((_, i) => (
       <Page
         key={i}

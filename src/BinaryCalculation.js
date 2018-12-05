@@ -5,7 +5,7 @@ class BinaryCalculation extends React.Component {
   render() {
     const addends = this.props.selectedPages.map((p) => {
       return (
-        <div className="binary-addend">
+        <div className="binary-addend" key={p}>
           <Num number={Math.pow(2, p)} mode="binary" />
         </div>
       )
