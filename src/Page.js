@@ -1,8 +1,7 @@
 import React from 'react';
 
 import Num from './Num.js';
-
-const powersOfTwo = Array(6).fill(null).map((_, n) => Math.pow(2, n))
+import { powersOfTwo } from './util'
 
 const numbersByPage = powersOfTwo.reduce((pages, power, n) => {
   pages[n] = [];
@@ -16,35 +15,18 @@ const numbersByPage = powersOfTwo.reduce((pages, power, n) => {
 }, {})
 
 
-class Page extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.numbers = numbersByPage[props.number]
-  }
-
-  render() {
-    const numbers = this.numbers.map((n) => {
-      return (
+export default ({ number, mode, selected, onClick }) => {
+  return (
+    <div className={`page ${selected ? 'selected' : ''} ${mode}-mode`}
+      onClick={onClick}>
+      {numbersByPage[number].map((n) => (
         <Num
           key={n}
           number={n}
-          mode={this.props.mode}
-          pageNumber={this.props.number}
-          powerOfTwo={powersOfTwo.includes(n)}
+          mode={mode}
+          power={number}
         />
-      );
-    });
-
-    const selected = this.props.selected ? 'selected' : ''
-
-    return (
-      <div className={`page ${selected} ${this.props.mode}-mode`}
-        onClick={this.props.onClick}>
-        {numbers}
-      </div>
-    );
-  }
+      ))}
+    </div>
+  )
 }
-
-export default Page;
