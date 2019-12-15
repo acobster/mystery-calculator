@@ -15,10 +15,10 @@ const yourNumberPlaces = (selectedPages) => {
   ]
   const places = selectedPages.map(power => powers[power])
 
-  return `Your number has a one in the ${oxfordComma(places)} places`
+  return `Your number has a 1 in the ${oxfordComma(places)} places`
 }
 
-export default ({ selectedPages, number, mode }) => {
+export default ({ selectedPages, number }) => {
   if (selectedPages.length < 2) {
     return (
       <div>
