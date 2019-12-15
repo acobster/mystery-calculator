@@ -7,11 +7,11 @@ import Explainer from './Explainer.js';
 import ModeButton from './ModeButton.js';
 import PrintButton from './PrintButton.js';
 
+const PAGE_COUNT = 6;
+
 class MysteryCalculator extends React.Component {
   constructor(props) {
     super(props);
-
-    this.PAGE_COUNT = 6;
 
     let pages = [];
     if (window.localStorage) {
@@ -24,7 +24,7 @@ class MysteryCalculator extends React.Component {
     }
 
     this.state = {
-      mode: 'binary',
+      mode: 'mystery',
       selectedPages: pages,
       reveal: false,
     };
@@ -33,7 +33,7 @@ class MysteryCalculator extends React.Component {
       { name: 'mystery',    title: 'Mystery Mode',    value: '?' },
       { name: 'decimal',    title: 'Decimal Mode',    value: '32' },
       { name: 'binary',     title: 'Binary Mode',     value: '011010' },
-      { name: 'explainer',  title: 'Explainer Mode',  value: 'Explain!' },
+      { name: 'explainer',  title: 'Explainer Mode',  value: '!!!' },
     ];
   }
 
@@ -73,7 +73,7 @@ class MysteryCalculator extends React.Component {
 
   pagesInMode(mode) {
     // render PAGE_COUNT pages, each corresponding to the appropriate power of 2
-    return Array(this.PAGE_COUNT).fill(null).map((_, i) => (
+    return Array(PAGE_COUNT).fill(null).map((_, i) => (
       <Page
         key={i}
         number={i}
@@ -114,23 +114,23 @@ class MysteryCalculator extends React.Component {
             number={this.calculate(this.state.selectedPages)}
             mode={this.state.mode}
           />
+          <aside className="controls">
+            <Answer
+              number={this.calculate(this.state.selectedPages)}
+              mode={this.state.mode}
+              reveal={this.state.reveal}
+              onReveal={() => this.setState({reveal: true})}
+            />
+            <ul className="modes control">
+              {this.modeOptions()}
+            </ul>
+          </aside>
         </section>
-        <ul className="modes">
-          {this.modeOptions()}
-        </ul>
-        <aside className="answer">
-          <Answer
-            number={this.calculate(this.state.selectedPages)}
-            mode={this.state.mode}
-            reveal={this.state.reveal}
-            onReveal={() => this.setState({reveal: true})}
-          />
-        </aside>
         <footer>
           <div className="copyright">
             <p>
 							© 2018 Coby Tamayo, Some Rights Reserved.&nbsp;
-              <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a><br />
+              <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY.</a>
               <span className="attribution">
                 Printer icon by <a
                   href="https://www.flaticon.com/authors/gregor-cresnar"

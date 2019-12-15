@@ -35,7 +35,7 @@ class Explainer extends React.Component {
         <p>Choose a number from 1 to 63.</p>
         <p>Click on each card where your number appears.</p>
         <p>
-          Click "reveal" below, and the Mystery Calculator
+          Click "reveal," and the Mystery Calculator
           will guess your number!
         </p>
         <p>Explore the different modes below to learn how this works.</p>

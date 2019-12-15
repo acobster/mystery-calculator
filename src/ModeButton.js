@@ -9,7 +9,7 @@ function ModeButton(props) {
       title={props.title}
       onClick={() => props.onClick(props.mode)}
       type="button"
-    >{props.value}</button>
+    ><span>{props.value}</span><span>{props.title}</span></button>
   );
 }
 

@@ -22,8 +22,8 @@ function Answer(props) {
   }
 
   return (
-    <div className="answer">
-      <label className="number-label">Your Number:</label>
+    <div className="answer control">
+      <label className="number-label">Your&nbsp;Number:</label>
       <div className="answer-number">{markup}</div>
     </div>
   );
