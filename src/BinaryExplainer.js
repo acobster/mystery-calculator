@@ -2,17 +2,23 @@ import React from 'react'
 
 import BinaryCalculation from './BinaryCalculation'
 import DecimalCalculation from './DecimalCalculation'
+import { oxfordComma } from './util'
+
+const yourNumberPlaces = ({ selectedPages }) => {
+  const powers = [
+    'ones\'',
+    'twos\'',
+    'fours\'',
+    'eights\'',
+    'sixteens\'',
+    'thirty-twos\'',
+  ]
+  const places = selectedPages.map(power => powers[power])
+
+  return `Your number has a one in the ${oxfordComma(places)} places`
+}
 
 class BinaryExplainer extends React.Component {
-  yourNumberPlaces() {
-    // TODO
-    return (
-      <span>
-        Your number has a ....
-      </span>
-    )
-  }
-
   render() {
     if (this.props.selectedPages.length < 2) {
       return (
@@ -91,7 +97,7 @@ class BinaryExplainer extends React.Component {
         </div>
         <p>
           How would we write your number in binary? We saw the answer already,
-          but let's think it through. {this.yourNumberPlaces()}:
+          but let's think it through. {yourNumberPlaces(this.props)}:
         </p>
 
         <div className="calculation-pair">
