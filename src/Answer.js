@@ -6,25 +6,32 @@ function Answer(props) {
   let markup;
   if (!props.reveal) {
     markup = (
-      <div>
-        <span className="number number-mystery">???</span>
-        <button
-          className="reveal-button"
-          onClick={props.onReveal}
-          type="button"
-        >Reveal!</button>
-      </div>
+      <React.Fragment>
+        <label className="answer-component number-label">Your&nbsp;Number:</label>
+        <div className="number answer-component number-mystery">???</div>
+        <div className="answer-component">
+          <button
+            className="reveal-button"
+            onClick={props.onReveal}
+            type="button"
+          >Reveal!</button>
+        </div>
+      </React.Fragment>
     );
   } else {
     markup = (
-      <Num number={props.number} mode={props.mode} />
+      <React.Fragment>
+        <label className="number-label answer-component">Your&nbsp;Number:</label>
+        <div className="number-reveal answer-component">
+          <Num number={props.number} mode={props.mode} />
+        </div>
+      </React.Fragment>
     );
   }
 
   return (
     <div className="answer control">
-      <label className="number-label">Your&nbsp;Number:</label>
-      <div className="answer-number">{markup}</div>
+      {markup}
     </div>
   );
 }

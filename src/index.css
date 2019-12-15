@@ -4,6 +4,13 @@ body {
   background-color: white;
 }
 
+main {
+  width: 100%;
+  max-width: 90em;
+  margin: auto;
+  background-color: white;
+}
+
 header {
   display: flex;
   justify-content: space-around;
@@ -26,12 +33,6 @@ h2 {
   font-size: 0.8em;
   text-align: right;
   color: #555;
-}
-
-main {
-  max-width: 100%;
-  margin: auto;
-  background-color: white;
 }
 
 aside {
@@ -62,11 +63,6 @@ a {
 }
 
 
-.pages {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .page {
   display: flex;
   flex-wrap: wrap;
@@ -75,8 +71,14 @@ a {
   width: 100%;
   max-width: 400px;
   height: 100px;
-  margin: auto;
-  padding: 8px 0;
+  margin: 0.3em auto;
+  padding: 14px 0 10px 3px;
+}
+.page.binary-mode {
+  padding: 12px 3px 12px 3px;
+}
+.page.explainer-mode {
+  padding: 12px 3px 12px 8px;
 }
 
 .number {
@@ -102,8 +104,12 @@ a {
   color: #570a57;
 }
 
+.explainer {
+  max-width: 40em;
+}
+
 .control {
-  width: 80%;
+  width: 100%;
   margin: 1em auto;
   max-width: 20em;
 }
@@ -142,34 +148,26 @@ a {
   padding: 0.2em 0.3em;
 }
 
-
 .answer {
-  position: relative;
   display: flex;
   justify-content: center;
-  margin: 1em auto;
-}
-
-.number-label, .answer-number, .explainer {
-  font-family: Palatino;
+  flex-wrap: wrap;
 }
 .controls {
+  max-width: 15em;
   font-family: monospace;
 }
-
-.number-label, .answer-number {
-  width: 50%;
-  margin: 0.6em;
+.answer-component {
+  margin: 0.5em 1em;
 }
-
+.number-label, .number-mystery, .number-reveal {
+  margin-top: 0.7em;
+}
 .number-label {
   text-align: right;
 }
 .reveal-button {
-  margin-top: -0.5em;
-  margin-left: 2em;
   padding: 0.8em;
-  position: absolute;
   text-transform: uppercase;
   background-color: pink;
   font-weight: bold;
@@ -189,26 +187,20 @@ a {
  * Layout Progressive Enhancement
  */
 
-supports (height: 1vh) {
+@supports (height: 1vh) {
   header {
     height: 15vh;
   }
 
   .pages {
-    height: 85vh;
+    height: 80vh;
   }
 }
 
 @supports (display: grid) {
-  .pages {
-    display: grid;
-  }
-
   .page {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    /* display numbers on the page in a grid too */
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -262,26 +254,6 @@ supports (height: 1vh) {
 }
 
 
-@media only screen and (min-width: 400px) {
-  .number.binary-mode {
-    padding: 0 5px;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .book {
-    display: grid;
-    grid-template-columns: 500px 1fr 1fr;
-  }
-
-
-  .number.binary-mode,
-  .number.explainer-mode {
-    font-size: 85%;
-  }
-}
-
-
 
 /*
  * PRINT
@@ -300,7 +272,13 @@ supports (height: 1vh) {
   .number { width: initial; }
 }
 
-@media only screen and (min-width: 1250px) {
+@media only screen and (min-width: 1350px) {
+  .book {
+    grid-template-columns: 500px 6fr 3fr;
+  }
+  .controls {
+    max-width: none;
+  }
   .mode-btn {
     min-height: 4em;
     padding: 2em 0;
@@ -317,6 +295,19 @@ supports (height: 1vh) {
     position: absolute;
     left: 38%;
     top: 0.6em;
+  }
+}
+
+
+@media only screen and (min-width: 900px) {
+  .book {
+    display: grid;
+    grid-template-columns: 500px 5fr 2fr;
+  }
+
+  .number.binary-mode,
+  .number.explainer-mode {
+    font-size: 85%;
   }
 }
 
@@ -339,5 +330,11 @@ supports (height: 1vh) {
   .attribution {
     display: inline-block;
     padding-left: 2ch;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .number.binary-mode {
+    padding: 0 5px;
   }
 }

@@ -23,10 +23,6 @@ class Page extends React.Component {
     this.numbers = numbersByPage[props.number]
   }
 
-  selectedClass() {
-    return this.props.selected ? 'selected' : '';
-  }
-
   render() {
     const numbers = this.numbers.map((n) => {
       return (
@@ -40,8 +36,11 @@ class Page extends React.Component {
       );
     });
 
+    const selected = this.props.selected ? 'selected' : ''
+
     return (
-      <div className={"page "+this.selectedClass()} onClick={this.props.onClick}>
+      <div className={`page ${selected} ${this.props.mode}-mode`}
+        onClick={this.props.onClick}>
         {numbers}
       </div>
     );

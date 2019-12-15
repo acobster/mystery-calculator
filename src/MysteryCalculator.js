@@ -120,6 +120,7 @@ class MysteryCalculator extends React.Component {
               mode={this.state.mode}
               reveal={this.state.reveal}
               onReveal={() => this.setState({reveal: true})}
+              onHide={() => this.setState({reveal: false})}
             />
             <ul className="modes control">
               {this.modeOptions()}

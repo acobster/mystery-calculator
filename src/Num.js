@@ -40,7 +40,7 @@ class Num extends React.Component {
     const power = this.props.powerOfTwo ? 'power-of-2' : ''
 
     return (
-      <span className={"number "+this.props.mode+"-mode "+power}>
+      <span className={`number ${this.props.mode}-mode power`}>
         {this.renderNumber()}
       </span>
     );
