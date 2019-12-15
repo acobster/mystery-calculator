@@ -6,8 +6,9 @@ import Answer from './Answer.js';
 import Explainer from './Explainer.js';
 import ModeButton from './ModeButton.js';
 import PrintButton from './PrintButton.js';
+import { powersOfTwo } from './util'
 
-const PAGE_COUNT = 6;
+const PAGE_COUNT = powersOfTwo.length;
 
 class MysteryCalculator extends React.Component {
   constructor(props) {

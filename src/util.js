@@ -23,3 +23,5 @@ export function decimalEquation(exponents, sum) {
   if (exponents.length === 1) return Math.pow(2, exponents[0])
   return exponents.sort().map(e => Math.pow(2, e)).join(' + ') + ' = ' + sum
 }
+
+export const powersOfTwo = [1,2,4,8,16,32]
