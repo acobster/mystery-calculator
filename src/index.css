@@ -267,7 +267,7 @@ a {
  */
 
 
-.print, .print-btn { display: none; }
+.print, .print-btn, .attribution { display: none; }
 
 @media only print {
   body { font-size: 12px; }
@@ -294,5 +294,8 @@ a {
   .printer-icon path {
     fill: hotpink;
     opacity: 1;
+  }
+  .attribution {
+    display: initial;
   }
 }

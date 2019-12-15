@@ -131,13 +131,15 @@ class MysteryCalculator extends React.Component {
             <p>
 							© 2018 Coby Tamayo, Some Rights Reserved.&nbsp;
               <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a><br />
-              Printer icon by <a
-                href="https://www.flaticon.com/authors/gregor-cresnar"
-                title="Gregor Cresnar"
-              >Gregor Cresnar</a> on <a
-                href="https://www.flaticon.com/"
-                title="Flaticon"
-              >flaticon.com</a>
+              <span className="attribution">
+                Printer icon by <a
+                  href="https://www.flaticon.com/authors/gregor-cresnar"
+                  title="Gregor Cresnar"
+                >Gregor Cresnar</a> on <a
+                  href="https://www.flaticon.com/"
+                  title="Flaticon"
+                >flaticon.com</a>
+              </span>
 						</p>
           </div>
           <div className="print">
