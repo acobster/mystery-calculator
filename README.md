@@ -12,7 +12,7 @@ It's actually quite a neat little bit of math, so I decided to implement it as a
 
 ## Why the Mystery Calculator?
 
-What I like about this problem is that it nicely encapsulates how different bases of numbers work, especially binary. It illustrates something fundamental about our number: that each number, in any base, is a unique combination of digits in different "places" within that base. This may seem so obvious as to be uninteresting, but it's the key to understanding how the Mystery Calculator works, and for folks who don't have a strong grasp of the concept of bases or binary, the Mystery Calculator might be a good way to help them develop that intuition.
+What I like about this problem is that it nicely encapsulates how different bases of numbers work, especially binary. It illustrates something fundamental about our number system: that each number, in any base, is a unique combination of digits in different "places" within that base. This may seem so obvious as to be uninteresting, but it's the key to understanding how the Mystery Calculator works, and for folks who don't have a strong grasp of the concept of bases or binary, the Mystery Calculator might be a good way to help them develop that intuition.
 
 What I like about this implementation in particular is that it calculates the number you, the user, choose and presents that calculation in a variety of different ways. This goal of this dynamic style of presentation is to foster intuition for how the calculations work.
 
