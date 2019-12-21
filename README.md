@@ -12,6 +12,7 @@ It's actually quite a neat little bit of math, so I decided to implement it as a
 
 ## TODO
 
+* Fix Netlify builds
 * Fix Answer height so mode btns don't jump around
 * Finish BossExplainer
 * Rework BinaryCalculator prose?
