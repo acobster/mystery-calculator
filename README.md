@@ -18,10 +18,12 @@ What I like about this implementation in particular is that it calculates the nu
 
 ## TODO
 
+*This is work-in-progress that I hack on in my spare time. As such, not everything works as expected, and will likely be revised.*
+
+* Finish BossExplainer
+* Implement "unlocking" (i.e. disable Binary/Boss mode until previous steps have been visited)
 * Fix Netlify builds
 * Fix Answer height so mode btns don't jump around
-* Implement "unlocking" (i.e. disable Binary/Boss mode until previous steps have been visited)
-* Finish BossExplainer
 * Rework BinaryCalculator prose?
 * Optimize responsiveness for tablet?
 
