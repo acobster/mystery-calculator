@@ -4,6 +4,10 @@ The Mystery Calculator is a groovy little number trick that usually comes in the
 
 ![My Mystery Calculator booklet](/img/booklet.jpg)
 
+A little blurb on the back reads:
+
+> ...Show all the cards to a friend and ask them to select one number from any one card. Show the other five cards to your friend asking them to say whether the number appears on these cards. Take all the cards on which your friend says the number appears, add together the top left hand corner number of each card and the total is the number your friend selected.
+
 It's actually quite a neat little bit of math, so I decided to implement it as a small React site, partly to make something cool and educational, partly to teach myself React.
 
 ## TODO
