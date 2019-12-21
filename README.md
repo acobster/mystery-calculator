@@ -6,6 +6,12 @@ The Mystery Calculator is a groovy little number trick that usually comes in the
 
 It's actually quite a neat little bit of math, so I decided to implement it as a small React site, partly to make something cool and educational, partly to teach myself React.
 
+## TODO
+
+* Finish BossExplainer
+* Rework BinaryCalculator prose?
+* Optimize responsiveness for tablet?
+
 ## Dev
 
 ```
