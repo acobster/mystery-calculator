@@ -34,7 +34,7 @@ class MysteryCalculator extends React.Component {
       { name: 'mystery',    title: 'Mystery Mode',    value: '?' },
       { name: 'decimal',    title: 'Decimal Mode',    value: '32' },
       { name: 'binary',     title: 'Binary Mode',     value: '011010' },
-      { name: 'explainer',  title: 'Explainer Mode',  value: '!!!' },
+      { name: 'explainer',  title: 'Boss Mode',       value: '!!!' },
     ];
   }
 
