@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Digit from './Digit.js'
-import { powersOfTwo } from './util'
 
 const toBinary = (n, power, showSignificance) => {
   // leftPad to ensure all binary nums are the same length
