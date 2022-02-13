@@ -15,10 +15,11 @@ const yourNumberPlaces = (selectedPages) => {
   ]
   const places = selectedPages.map(power => powers[power])
 
-  return `Your number has a 1 in the ${oxfordComma(places)} places`
+  return `a 1 in the ${oxfordComma(places)} places`
 }
 
 export default ({ selectedPages, number }) => {
+  console.log(selectedPages)
   if (selectedPages.length < 2) {
     return (
       <div>
@@ -85,18 +86,29 @@ export default ({ selectedPages, number }) => {
       <p>
         This number, which looks like the number ten thousand in decimal, is
         actually just sixteen in binary. It has a 0 in the ones', tens',
-        hundreds', and thousands' places, and a 1 in sixteens' place:
+        hundreds', and thousands' places, and a 1 in sixteens' place.
+      </p>
+      <p>
+        Let's consider another example. Here's the number 20 in binary:
       </p>
       <div className="calculation-pair">
         <BinaryCalculation
-          number={number}
-          selectedPages={selectedPages}
-          annotated={true}
+          number={20}
+          selectedPages={[2,4]}
         />
       </div>
       <p>
+        Here we have {yourNumberPlaces([2,4])}. This is really just another
+        way of saying that the places with ones in them add up to 20.
+        It is a restatement of the equation:
+      </p>
+      <div className="calculation-pair">
+        <p className="equation">16 + 4 = 20</p>
+      </div>
+      <p>
         How would we write your number in binary? We saw the answer already,
-        but let's think it through. {yourNumberPlaces(selectedPages)}:
+        but let's think it through.
+        Your number has {yourNumberPlaces(selectedPages)}:
       </p>
 
       <div className="calculation-pair">
