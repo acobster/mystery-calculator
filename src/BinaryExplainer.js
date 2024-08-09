@@ -64,6 +64,14 @@ export default ({ selectedPages, number }) => {
         is putting digits, like 6, in different places.
       </p>
       <p>
+        What makes a number distinct from every other number is that it has a
+        unique combination of digits in specific places. Different numbers are
+        written differently, and no two numbers are written the same way.
+        This may seem obvious and uninteresting, but it's a key part of
+        understanding the Mystery Calculator, so it's worth slowing down and
+        considering more deeply.
+      </p>
+      <p>
         The number 16, for example, has a 6 in the ones' place and a 1 in
         the tens' place:
       </p>
@@ -100,7 +108,8 @@ export default ({ selectedPages, number }) => {
       <p>
         Here we have {yourNumberPlaces([2,4])}. This is really just another
         way of saying that the places with ones in them add up to 20.
-        It is a restatement of the equation:
+        The binary calculation above is just another way of writing
+        this calculation (written in decimal):
       </p>
       <div className="calculation-pair">
         <p className="equation">16 + 4 = 20</p>
